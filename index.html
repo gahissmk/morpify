@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morpify</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div id="logo">
+    <svg width="60" height="60" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="48" fill="#1ed760"/>
+      <path d="M30 40 C50 50, 70 40, 70 40" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M30 50 C50 60, 70 50, 70 50" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M30 60 C50 70, 70 60, 70 60" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <h1>Morpify</h1>
+  <input type="text" id="search" placeholder="Rechercher un titre ou un artiste...">
+</header>
+
+<section id="banner">
+  <div class="banner-content">
+  <h1> </h1>
+  <h1> </h1>
+  <h1> </h1>
+  <h1> </h1>
+  <h1> </h1>
+ <h1>Découvrez, écoutez et créez vos playlists favorites</h1>
+    <div id="banner-filters">
+      <select id="countryFilter"><option value="">Tous les pays</option></select>
+      <select id="genreFilter"><option value="">Tous les genres</option></select>
+    </div>
+  </div>
+  <canvas id="musicCanvas"></canvas>
+  
+</section>
+
+<section id="player">
+  <audio id="audio" controls></audio>
+  <div class="track-info-player" id="info"></div>
+  <div class="controls">
+    <input type="range" id="progress" value="0" min="0" max="100">
+    <div class="volume-container">
+      <input type="range" id="volume" value="100" min="0" max="100">
+    </div>
+  </div>
+</section>
+
+<!-- ALBUMS -->
+<div id="album-cards"></div>
+
+<!-- POPUP MUSIQUE -->
+<div id="music-popup"></div>
+
+<!-- POPUP SKYROCK -->
+<div id="skyrock-popup">Skyrock</div>
+
+<script src="app.js"></script>
+</body>
+</html>
