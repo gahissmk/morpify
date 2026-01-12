@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Morpify</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morpify</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -17,46 +17,52 @@
       <path d="M30 60 C50 70, 70 60, 70 60" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
     </svg>
   </div>
-  <h1>Morpifyy</h1>
+  <h1>Morpify</h1>
   <input type="text" id="search" placeholder="Rechercher un titre ou un artiste...">
 </header>
 
 <section id="banner">
   <div class="banner-content">
-  <h1> </h1>
-  <h1> </h1>
-  <h1> </h1>
-  <h1> </h1>
-  <h1> </h1>
- <h1>Découvrez, écoutez et créez vos playlists favorites</h1>
+    <h1>Découvrez, écoutez et créez vos playlists favorites</h1>
     <div id="banner-filters">
-      <select id="countryFilter"><option value="">Tous les pays</option></select>
-      <select id="genreFilter"><option value="">Tous les genres</option></select>
+      <select id="countryFilter"></select>
+      <select id="genreFilter"></select>
     </div>
   </div>
   <canvas id="musicCanvas"></canvas>
-  
 </section>
 
 <section id="player">
-  <audio id="audio" controls></audio>
+  <audio id="audio"></audio>
   <div class="track-info-player" id="info"></div>
   <div class="controls">
-    <input type="range" id="progress" value="0" min="0" max="100">
-    <div class="volume-container">
-      <input type="range" id="volume" value="100" min="0" max="100">
-    </div>
+    <input type="range" id="progress" min="0" max="100" value="0">
+    <input type="range" id="volume" min="0" max="100" value="100">
   </div>
 </section>
 
-<!-- ALBUMS -->
-<div id="album-cards"></div>
+<div id="albums"></div>
 
-<!-- POPUP MUSIQUE -->
 <div id="music-popup"></div>
 
-<!-- POPUP SKYROCK -->
-<div id="skyrock-popup">Skyrock</div>
+<!-- 🔥 RADIO POPUP FUTURISTE -->
+<div id="radio-popup">
+  <div class="radio-title">📻 Radio Live</div>
+
+  <div class="radio-buttons">
+    <button class="radio-btn" data-url="https://icecast.skyrock.net/s/natio_mp3_128k">Skyrock</button>
+    <button class="radio-btn" data-url="https://stream.mouv.fr/mouv-midfi.mp3">Mouv'</button>
+    <button class="radio-btn" data-url="https://generationfm.ice.infomaniak.ch/generationfm-high.mp3">Générations</button>
+    <button class="radio-btn" data-url="https://direct.franceinter.fr/live/franceinter-midfi.mp3">France Inter</button>
+  </div>
+
+  <div class="radio-status">
+    <span id="radio-now">Aucune radio</span>
+    <button id="radio-toggle">▶</button>
+  </div>
+
+  <audio id="radio-audio"></audio>
+</div>
 
 <script src="app.js"></script>
 </body>
