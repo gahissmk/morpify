@@ -1,67 +1,87 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Morpify</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morpify</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- BACKGROUND NEON -->
+<canvas id="neonCanvas"></canvas>
+
+<!-- HEADER (NE PAS TOUCHER) -->
 <header>
   <div id="logo">
-    <svg width="60" height="60" viewBox="0 0 100 100">
+    <svg width="56" height="56" viewBox="0 0 100 100">
       <circle cx="50" cy="50" r="48" fill="#1ed760"/>
-      <path d="M30 40 C50 50, 70 40, 70 40" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M30 50 C50 60, 70 50, 70 50" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M30 60 C50 70, 70 60, 70 60" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M30 40 C50 50,70 40,70 40" stroke="#fff" stroke-width="5" fill="none"/>
+      <path d="M30 50 C50 60,70 50,70 50" stroke="#fff" stroke-width="5" fill="none"/>
+      <path d="M30 60 C50 70,70 60,70 60" stroke="#fff" stroke-width="5" fill="none"/>
     </svg>
   </div>
   <h1>Morpify</h1>
-  <input type="text" id="search" placeholder="Rechercher un titre ou un artiste...">
+  <input id="search" placeholder="Rechercher un titre ou un artiste">
 </header>
 
-<section id="banner">
-  <div class="banner-content">
-    <h1>Découvrez, écoutez et créez vos playlists favorites</h1>
-    <div id="banner-filters">
+<!-- HERO / BANNIÈRE -->
+<section id="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-content">
+    <h1>Plonge dans le son</h1>
+    <p>Explore des albums, découvre des vibes, mixe ton univers</p>
+    <div class="filters">
       <select id="countryFilter"></select>
       <select id="genreFilter"></select>
     </div>
   </div>
-  <canvas id="musicCanvas"></canvas>
 </section>
 
+<!-- PLAYER -->
 <section id="player">
   <audio id="audio"></audio>
-  <div class="track-info-player" id="info"></div>
-  <div class="controls">
-    <input type="range" id="progress" min="0" max="100" value="0">
-    <input type="range" id="volume" min="0" max="100" value="100">
+  <div id="now-playing">Aucune musique</div>
+  <input type="range" id="progress" value="0">
+  <div class="player-controls">
+    <button id="playBtn">▶</button>
+    <button id="pauseBtn">⏸</button>
+    <button id="fullscreenBtn">⛶</button>
+    <input type="range" id="volume" min="0" max="100" value="80">
   </div>
+  <canvas id="equalizer"></canvas>
 </section>
 
-<div id="albums"></div>
+<!-- ALBUMS -->
+<section id="albums-section">
+  <div id="albums"></div>
+  <div id="tracks-list"></div>
+</section>
 
-<div id="music-popup"></div>
+<!-- RECOMMANDATIONS -->
+<section id="recommendations">
+  <h2>Recommandations pour vous</h2>
+  <div id="rec-list"></div>
+</section>
 
-<!-- 🔥 RADIO POPUP FUTURISTE -->
+<!-- CARTE MONDE -->
+<section id="world-map">
+  <h2>🌍 Explorer par pays</h2>
+  <div id="map"></div>
+</section>
+
+<!-- POPUP RADIO -->
 <div id="radio-popup">
-  <div class="radio-title">📻 Radio Live</div>
-
-  <div class="radio-buttons">
-    <button class="radio-btn" data-url="https://icecast.skyrock.net/s/natio_mp3_128k">Skyrock</button>
-    <button class="radio-btn" data-url="https://stream.mouv.fr/mouv-midfi.mp3">Mouv'</button>
-    <button class="radio-btn" data-url="https://generationfm.ice.infomaniak.ch/generationfm-high.mp3">Générations</button>
-    <button class="radio-btn" data-url="https://direct.franceinter.fr/live/franceinter-midfi.mp3">France Inter</button>
-  </div>
-
-  <div class="radio-status">
-    <span id="radio-now">Aucune radio</span>
-    <button id="radio-toggle">▶</button>
-  </div>
-
   <audio id="radio-audio"></audio>
+  <div class="radio-title">📻 Radio</div>
+  <div class="radio-controls">
+    <button id="radioPlay">▶</button>
+    <button id="radioPause">⏸</button>
+  </div>
+  <div class="radio-item" data-url="https://icecast.skyrock.net/s/natio_mp3_128k">Skyrock</div>
+  <div class="radio-item" data-url="https://icecast.radiofrance.fr/mouv-midfi.mp3">Mouv'</div>
+  <div class="radio-item" data-url="https://icecast.radiofrance.fr/franceinter-midfi.mp3">France Inter</div>
+  <div class="radio-item" data-url="https://streaming.radio.generationfm.fr/generationfm.mp3">Génération</div>
 </div>
 
 <script src="app.js"></script>
